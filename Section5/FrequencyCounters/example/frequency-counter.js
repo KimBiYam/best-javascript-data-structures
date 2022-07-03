@@ -4,8 +4,8 @@ function same(arr1, arr2) {
   }
 
   // 두 객체를 사용해서 각 배열의 개별 값의 빈도를 카운팅 한다.
-  let frequencyCounter1 = {};
-  let frequencyCounter2 = {};
+  const frequencyCounter1 = {};
+  const frequencyCounter2 = {};
 
   // 첫 번째 배열을 반복 돌면서 두 번째 배열의 반복에서 값을 확인하는 대신
   // 각 배열마다 한 번씩 개별적으로 반복을 적용할 수 있다.
