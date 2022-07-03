@@ -19,7 +19,7 @@ function same(arr1, arr2) {
   }
 
   for (let key in frequencyCounter1) {
-    // 현재 값의 제곱에 해당하는 값이 두 번째 frequencyCounter에 없으면 거짓이다.
+    // 현재 값의 제곱에 해당하는 값이 두 번째 frequencyCounter2에 없으면 거짓이다.
     if (!(key ** 2 in frequencyCounter2)) {
       return false;
     }
