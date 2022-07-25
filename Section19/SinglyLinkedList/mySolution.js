@@ -89,6 +89,14 @@ class SinglyLinkedList {
 
     return current;
   }
+
+  set(index, val) {
+    const targetNode = this.get(index);
+    if (!targetNode) return false;
+
+    targetNode.val = val;
+    return true;
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -96,4 +104,4 @@ list.push("HELLO");
 list.push("GOODBYE");
 list.push("!");
 
-console.log(list.get(2));
+console.log(list.set(1, "UPDATED"));
