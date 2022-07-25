@@ -12,7 +12,19 @@ class SinglyLinkedList {
     this.length = 0;
   }
 
-  push() {}
+  push(val) {
+    const newNode = new Node(val);
+    if (this.head === null) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+
+    this.length++;
+    return this;
+  }
 }
 
 const list = new SinglyLinkedList();
