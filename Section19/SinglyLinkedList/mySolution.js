@@ -126,12 +126,31 @@ class SinglyLinkedList {
     this.length--;
     return nodeToRemove;
   }
+
+  reverse() {
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+
+    let prev = null;
+    let next = null;
+
+    while (node) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+
+    return this;
+  }
 }
 
 const list = new SinglyLinkedList();
-list.push("HELLO");
-list.push("GOODBYE");
-list.push("!");
+list.push("13");
+list.push("27");
+list.push("32");
+list.push("71");
 
-console.log(list.remove(1));
+list.reverse();
 console.log(list);
