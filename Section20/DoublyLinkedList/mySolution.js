@@ -80,6 +80,7 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+
   get(index) {
     if (index < 0 || index >= this.length) return null;
 
@@ -106,6 +107,16 @@ class DoublyLinkedList {
 
     return foundNode;
   }
+
+  set(index, val) {
+    const foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+
+    return false;
+  }
 }
 
 const list = new DoublyLinkedList();
@@ -115,4 +126,6 @@ list.push(3);
 list.push(4);
 list.push(5);
 
+console.log(list.get(3));
+console.log(list.set(3, 10));
 console.log(list.get(3));
