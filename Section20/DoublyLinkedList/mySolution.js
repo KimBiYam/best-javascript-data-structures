@@ -64,11 +64,27 @@ class DoublyLinkedList {
     this.length--;
     return headToRemove;
   }
+
+  unshift(val) {
+    const newNode = new Node(val);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head.prev = newNode;
+      this.head = newNode;
+    }
+
+    this.length++;
+    return this;
+  }
 }
 
 const list = new DoublyLinkedList();
 list.push(1);
 list.push(2);
-list.shift();
+list.unshift(3);
 
 console.log(list);
