@@ -30,7 +30,7 @@ class DoublyLinkedList {
   }
 
   pop() {
-    if (!this.head) return null;
+    if (!this.head) return undefined;
 
     const tailToRemove = this.tail;
 
