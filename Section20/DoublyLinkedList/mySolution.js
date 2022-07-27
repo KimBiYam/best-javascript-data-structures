@@ -153,15 +153,38 @@ class DoublyLinkedList {
     this.length--;
     return nodeToRemove;
   }
+
+  reverse() {
+    let currentNode = this.head;
+    let tempNode = null;
+
+    // head에서부터 순회함
+    while (currentNode) {
+      // tempNode에 이전 노드를 저장
+      tempNode = currentNode.prev;
+      // currentNode의 이전 노드를 currentNode의 next로 변경
+      // currentNode의 다음 노드를 기존의 이전 노드인 tempNode로 변경
+      // 이렇게 변경하면 현재 요소와 다음 요소를 서로 교환 하는 것과 같다.
+      currentNode.prev = currentNode.next;
+      currentNode.next = tempNode;
+      // 기존의 다음 노드(위에서 교환을 했으므로 prev가 된다)를 다음 노드로 지정
+      currentNode = currentNode.prev;
+    }
+
+    // tempNode에 prev 노드를 할당하기 때문에 해당 값이 없으면 빈 리스트거나 값이 1개인 리스트라서
+    // tail과 head값을 업데이트 할 필요가 없다.
+    if (tempNode) {
+      this.tail = this.head;
+      this.head = tempNode.prev;
+    }
+
+    return this;
+  }
 }
 
 const list = new DoublyLinkedList();
 list.push(1);
 list.push(2);
 list.push(3);
-list.push(4);
-list.push(5);
 
-console.log(list.remove(3));
-console.log(list.get(2));
-console.log(list.get(3));
+list.reverse();
