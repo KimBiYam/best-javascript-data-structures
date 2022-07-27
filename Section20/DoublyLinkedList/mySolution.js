@@ -46,11 +46,29 @@ class DoublyLinkedList {
     this.length--;
     return tailToRemove;
   }
+
+  shift() {
+    if (!this.head) return undefined;
+
+    const headToRemove = this.head;
+
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = headToRemove.next;
+      this.head.prev = null;
+      headToRemove.next = null;
+    }
+
+    this.length--;
+    return headToRemove;
+  }
 }
 
 const list = new DoublyLinkedList();
 list.push(1);
 list.push(2);
-list.pop();
+list.shift();
 
 console.log(list);
