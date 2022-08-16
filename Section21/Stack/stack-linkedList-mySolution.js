@@ -25,10 +25,26 @@ class Stack {
 
     return ++this.size;
   }
+
+  pop() {
+    if (this.size === 0) return null;
+
+    const nodeToPop = this.first;
+
+    if (this.size === 1) {
+      this.last = null;
+    } else {
+      this.first = this.first.next;
+    }
+
+    this.size--;
+    return nodeToPop.value;
+  }
 }
 
 const stack = new Stack();
 stack.push(1);
 stack.push(2);
 
-console.log(stack.first);
+console.log(stack.pop());
+console.log(stack);
