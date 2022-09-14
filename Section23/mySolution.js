@@ -49,7 +49,7 @@ class BinarySearchTree {
         if (current.right.value === value) return current.right;
         current = current.right;
       } else {
-        if (!current.right) return null;
+        if (!current.left) return null;
         if (current.left.value === value) return current.left;
         current = current.left;
       }
@@ -66,7 +66,7 @@ class BinarySearchTree {
         if (current.right.value === value) return true;
         current = current.right;
       } else {
-        if (!current.right) return false;
+        if (!current.left) return false;
         if (current.left.value === value) return true;
         current = current.left;
       }
