@@ -33,6 +33,34 @@ class HashTable {
 
     return found ? found[1] : undefined;
   }
+
+  keys() {
+    const keysArray = [];
+
+    this.keyMap.forEach((map) => {
+      map.forEach(([key]) => {
+        if (!keysArray.includes(key)) {
+          keysArray.push(key);
+        }
+      });
+    });
+
+    return keysArray;
+  }
+
+  values() {
+    const valuesArray = [];
+
+    this.keyMap.forEach((map) => {
+      map.forEach(([, value]) => {
+        if (!valuesArray.includes(value)) {
+          valuesArray.push(value);
+        }
+      });
+    });
+
+    return valuesArray;
+  }
 }
 
 const hashTable = new HashTable(4);
@@ -42,5 +70,8 @@ hashTable.set("dozs", "are");
 hashTable.set("cats", "asd");
 hashTable.set("hasd", "asdas");
 
-console.log(hashTable.keyMap);
-console.log(hashTable.get("asdas"));
+// console.log(hashTable.keyMap);
+// console.log(hashTable.get("asdas"));
+
+console.log(hashTable.keys());
+console.log(hashTable.values());
