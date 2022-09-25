@@ -22,13 +22,26 @@ class Graph {
       (vertex) => vertex !== vertex1
     );
   }
+
+  removeVertex(vertex) {
+    const currentArray = this.adjacencyList[vertex];
+
+    currentArray.forEach((adjacencyVertex) => {
+      this.removeEdge(adjacencyVertex, vertex);
+    });
+
+    delete this.adjacencyList[vertex];
+  }
 }
 
 const graph = new Graph();
 graph.addVertex("hello");
 graph.addVertex("bye");
+graph.addVertex("hi");
+graph.addVertex("haha");
 graph.addEdge("hello", "bye");
+graph.addEdge("hello", "haha");
 
 console.log(graph.adjacencyList);
-console.log(graph.removeEdge("bye", "hello"));
+graph.removeVertex("hello");
 console.log(graph.adjacencyList);
