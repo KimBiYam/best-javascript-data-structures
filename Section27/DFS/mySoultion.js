@@ -33,22 +33,22 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
 
-  DFS(startVertex) {
+  depthFirstRecursive(startVertex) {
     const result = [];
     const visited = {};
 
-    const DFSRecursive = (vertex) => {
+    const dfs = (vertex) => {
       if (!vertex) return null;
 
       result.push(vertex);
       visited[vertex] = true;
 
       this.adjacencyList[vertex].forEach((adjacency) => {
-        if (!visited[adjacency]) DFSRecursive(adjacency);
+        if (!visited[adjacency]) dfs(adjacency);
       });
     };
 
-    DFSRecursive(startVertex);
+    dfs(startVertex);
 
     return result;
   }
@@ -71,4 +71,4 @@ graph.addEdge("D", "F");
 graph.addEdge("E", "F");
 
 console.log(graph.adjacencyList);
-console.log(graph.DFS("A"));
+console.log(graph.depthFirstRecursive("A"));
