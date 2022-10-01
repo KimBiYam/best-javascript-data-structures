@@ -76,11 +76,10 @@ class Graph {
   breadthFirst(startVertex) {
     const queue = [startVertex];
     const result = [];
-    const visited = {};
+    const visited = { [startVertex]: true };
 
     while (queue.length) {
       const vertex = queue.shift();
-      visited[vertex] = true;
       result.push(vertex);
 
       this.adjacencyList[vertex].forEach((adjacency) => {
